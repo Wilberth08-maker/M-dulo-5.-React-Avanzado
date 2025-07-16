@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RoutesIndex = () => {
+const Home = () => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const RoutesIndex = () => {
     )
 }
 
-export default RoutesIndex
+export default Home

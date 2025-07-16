@@ -23,7 +23,17 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
+      // forzamos comillas dobles 
+      "quotes": ["error", "double", { "avoidEscape": true }],
+      //fuerza usar solo minúsculas
+      "react/jsx-pascal-case": ["error", { "allowAllCaps": true, }],
+      // siempre usar punto y coma (en caso de conflicto con prettier)
+    },
+    settings: {
+      react: {
+        version: "detected"
+      }
     },
   },
 ])

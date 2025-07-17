@@ -1,4 +1,85 @@
+// Definir variables para un diseño más minimalista
+$menu-color: #333333; // Color de texto más oscuro para un look más profesional
+$hover-color: #ff6600; // Color para el hover, sigue siendo un acento vibrante
+$font-family: 'Roboto', San Serif, Arial; // Mantener la familia de fuentes limpia y moderna
+$header-bg-color: #ffffff; // Fondo blanco para un diseño minimalista
+$border-color: #e0e0e0; // Color gris suave para bordes o líneas sutiles
+$active-border-color: $hover-color; // Color para el borde del enlace activo
+
+// Mixins para reutilizar estilos
+@mixin header-link {
+    color: $menu-color;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; // Transición suave para el hover
+}
+
+@mixin header-border($size: 2px) {
+    border-bottom: solid $size $border-color;
+    transition: border-bottom-color 0.3s ease; // Transición suave para el borde
+}
+
+// Estilos del header con BEM
 .header {
-    background-color: #000;
-    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px; // Padding más ajustado para un diseño limpio
+    background-color: $header-bg-color; // Fondo blanco
+    font-family: $font-family;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra ligera para agregar profundidad
+
+    &__logo {
+        @include header-link;
+        font-size: 1.6rem; // Tamaño de fuente moderado
+        font-weight: bold; // Negrita para el logo
+        color: $menu-color; // Color oscuro para el logo
+    }
+
+    // Lista de navegación
+    &__nav-list {
+        display: flex;
+        list-style: none;
+        gap: 24px; // Espacio adecuado entre los enlaces
+    }
+
+    // Items de la lista
+    &__list-item {
+        list-style: none;
+    }
+
+    // Enlaces de los items
+    &__item-link {
+        @include header-link;
+        padding: 8px 12px; // Padding ajustado
+        position: relative; // Necesario para el pseudo-elemento de subrayado
+
+        &::after {
+            content: '';
+            display: block;
+            height: 2px; // Subrayado más sutil
+            width: 0;
+            background: $hover-color;
+            transition: width 0.3s ease; // Expansión suave del subrayado
+            position: absolute;
+            bottom: -3px; // Ajustar la posición del subrayado
+            left: 0;
+        }
+
+        &:hover {
+            color: $hover-color; // Cambiar color en hover
+            @include header-border(); // Añadir borde sutil en hover
+
+            &::after {
+                width: 100%; // Subrayado completo al hacer hover
+            }
+        }
+
+        // Enlace activo
+        &--is-active {
+            @include header-border($size: 3px); // Borde más grueso en el enlace activo
+            font-weight: bold; // Negrita para el enlace activo
+            color: $hover-color; // Cambiar el color del texto a color de hover
+        }
+    }
 }

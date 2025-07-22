@@ -16,6 +16,7 @@ export default defineConfig({
     },
     server: {
       port: 3000, // cambia el puerto si quieres (por defecto es 5173)
+      port: 5000,
       open: true, // abre el navegador automáticamente al iniciar el servidor
       strictPort: true, // Fallará si el puerto está ocupado (evita que elija otro automáticamente)
     },

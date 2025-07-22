@@ -2,10 +2,24 @@
 // Necesitamos pasarle un endpoint para que la API sepa a donde tiene que ir la petición
 
 // Importamos axios
-import axios from 'axios'
+import axiosInstance from './axiosConfig'
 
-// Establecer el endpoint de la API
-const BASE_URL = 'http://localhost:3000'
+// Mandar información
+// Registar un usuario (Signup)
+const registerUserService = async (data) => {
+    const response = await axiosInstance.post("/register", data)
+    return response; // Retornamos toda la respuesta para manejar status
+}
+// http://localhost/register{json}
 
-// Registrar un usuario (POST)
-const registerUserServie = (data) => axios.post(`${BASE_URL}/register`, data)
+// Autenticar un usuario (Login)
+const loginUserService = async (data) => {
+    const response = await axiosInstance.post("/login", data)
+    return response; // Retornamos toda la respuesta para manejar status
+}
+// http://localhost/login{json}
+
+export {
+    registerUserService,
+    loginUserService
+}

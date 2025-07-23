@@ -31,14 +31,17 @@ const Home = () => {
                             key={product.id}
                             className="bg-white rounded-lg shadow-md overflow-hidden w-72 transition-transform hover:scale-105"
                         >
-                            <img
-                                src={product.image || "https://via.placeholder.com/300?text=Sin+Imagen"}
-                                alt={product.product_name}
-                                className="w-full h-48 object-cover"
-                                onError={(e) => {
-                                    e.currentTarget.src = "https://via.placeholder.com/300?text=Imagen+no+disponible";
-                                }}
-                            />
+                            {product.image ? (
+                                <img
+                                    src={product.image}
+                                    alt={product.product_name}
+                                    className="w-full h-48 object-cover"
+                                />
+                            ) : (
+                                <div className="w-full h-48 flex items-center justify-center bg-gray-100 text-gray-500 text-sm italic">
+                                    {product.product_name}
+                                </div>
+                            )}
                             <div className="p-4">
                                 <h5 className="text-lg font-semibold text-gray-800 mb-2">{product.product_name}</h5>
                                 <p className="text-sm text-gray-600 mb-4">{product.description}</p>

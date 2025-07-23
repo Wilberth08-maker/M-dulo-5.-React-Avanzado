@@ -33,7 +33,7 @@ axiosInstance.interceptors.response.use(
     (response) => response, // si la respuesta es exitosa, la dejamos pasar
     (error) => {
         const status = error.response?.status;
-        const url = error.confing?.url;
+        const url = error.config?.url;
         const method = error.config?.method?.toUpperCase();
         const backendMessage = error.response?.data?.message;
 

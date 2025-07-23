@@ -19,7 +19,14 @@ const loginUserService = async (data) => {
 }
 // http://localhost/login{json}
 
+// 🔵 Obtener información del usuario autenticado
+const getMeUserService = async () => {
+    const {data} = await axiosInstance.get("/users/me")
+    return data;
+}
+
 export {
     registerUserService,
-    loginUserService
+    loginUserService,
+    getMeUserService
 }

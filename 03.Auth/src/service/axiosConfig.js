@@ -13,6 +13,22 @@ const axiosInstance = axios.create({
     },
 })
 
+// 🔄 Interceptor de request — inserta el token si existe
+axiosInstance.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem("token")
+        console.log("Token usado en petición:", token) // 👈 Verifica si está presente
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`
+        }
+        return config
+    },
+    (error) => {
+        return Promise.reject(error)
+    }
+);
+
+// 🛑 Interceptor de response — manejo de errores con mensajes custom
 axiosInstance.interceptors.response.use(
     (response) => response, // si la respuesta es exitosa, la dejamos pasar
     (error) => {

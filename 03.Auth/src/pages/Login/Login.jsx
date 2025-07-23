@@ -62,7 +62,7 @@ const Login = () => {
                         name="password"
                         placeholder="Contraseña"
                         className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none transition ease-in-out duration-200"
-                        {...register('password ', { required: "La contraseña es obligatoria" })}
+                        {...register('password', { required: "La contraseña es obligatoria" })}
                     />
                     {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
                 </div>

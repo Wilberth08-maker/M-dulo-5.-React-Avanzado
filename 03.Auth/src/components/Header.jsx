@@ -5,7 +5,7 @@ import './header.scss'
 
 
 const Header = () => {
-    const {logout, isAuth} = useAuthContext();
+    const {logout, auth} = useAuthContext();
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -45,7 +45,7 @@ const Header = () => {
                         </NavLink>
                     </li>
                     {/* Bloque condicional */}
-                    {isAuth ? (
+                    {auth ? (
                         <>
                             <li className="header__list-item">
                                 <NavLink

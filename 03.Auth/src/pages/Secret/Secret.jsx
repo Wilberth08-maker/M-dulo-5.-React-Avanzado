@@ -1,9 +1,9 @@
 import { useAuthContext } from "@/hooks/useAuthContext";
 
 const Secret = () => {
-    const { userPayload } = useAuthContext();
+    const { userPayLoad } = useAuthContext();
 
-    const role = userPayload?.role;
+    const role = userPayLoad?.role;
 
     return (
         <div className="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
@@ -26,14 +26,14 @@ const Secret = () => {
 
             {role === "ADMIN" && (
                 <div className="bg-blue-50 p-4 rounded">
-                    <h3 className="text-blue-700 font-medium">Saludos Admin 🫲</h3>
+                    <h3 className="text-blue-700 font-medium">Saludos Admin 🤝</h3>
                     <p className="text-sm text-blue-500">Tienes acceso a herramientas administrativas.</p>
                 </div>
             )}
 
             {role === "CUSTOMER" && (
                 <div className="bg-green-50 p-4 rounded">
-                    <h3 className="text-green-700 font-medium">Saludos Customer 🫲</h3>
+                    <h3 className="text-green-700 font-medium">Saludos Customer 🤝</h3>
                     <p className="text-sm text-green-500">Explora tu perfil y tus compras aquí.</p>
                 </div>
             )}

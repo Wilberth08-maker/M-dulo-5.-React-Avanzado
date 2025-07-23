@@ -12,6 +12,7 @@ export default defineConfig([
       js.configs.recommended,
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
+      "prettier" // Evita conflictos con prettier (reglas de formato)
     ],
     languageOptions: {
       ecmaVersion: 2020,
@@ -25,7 +26,8 @@ export default defineConfig([
     rules: {
       "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
       // forzamos comillas dobles 
-      "quotes": ["error", "double", { "avoidEscape": true }],
+      "semi": ["error", "never"],
+      "quotes": ["error", "single"],
       //fuerza usar solo minúsculas
       "react/jsx-pascal-case": ["error", { "allowAllCaps": true, }],
       // siempre usar punto y coma (en caso de conflicto con prettier)

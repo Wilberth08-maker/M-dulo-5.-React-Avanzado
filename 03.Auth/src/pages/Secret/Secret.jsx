@@ -7,16 +7,16 @@ const Secret = () => {
 
     return (
         <div className="max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg p-6">
-            <h1 className="text-xl font-bold text-gray-800 mb-4">Tipo de usuario 🧑‍🦰</h1>
+            <h1 className="text-xl font-bold text-gray-800 mb-4">Tipo de usuario 🧑</h1>
 
             <div className="mb-6">
                 {role === "ADMIN" ? (
                     <h2 className="text-lg font-semibold text-blue-600 mb-2">
-                        Hola Admin! Bienvenido a tu perfil 🫲
+                        Hola Admin! Bienvenido a tu perfil 💥
                     </h2>
                 ) : (
                     <h2 className="text-lg font-semibold text-green-600 mb-2">
-                        Hola Customer! Bienvenido a tu perfil 🫲
+                        Hola Customer! Bienvenido a tu perfil 🎈 
                     </h2>
                 )}
                 <p className="text-sm text-gray-500">

@@ -27,8 +27,7 @@ const Dashboard = () => {
             {/* Creamos una especie de Card */}
             <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-lg shadow-md">
                 <h2 className="text-xl font-bold text-gray-800 mb-2">
-                    Bienvenido a tu perfil
-                    {userData.first_name}👋
+                    Bienvenido a tu perfil {userData.first_name} 👋
                 </h2>
                 <p className="text-sm text-gray-500 mb-4">Tu perfil personal:</p>
 
